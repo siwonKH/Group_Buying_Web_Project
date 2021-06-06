@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>공동 구매 - (물건 이름)-(게시자)</title>
+  <link rel="icon" href="/static/shop/img/logo.ico" type="image/ico">
+  <link rel="stylesheet" href="/static/shop/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/static/shop/vendors/linericon/style.css">
+  <link rel="stylesheet" href="/static/shop/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="/static/shop/css/style.min.css">
+</head>
+<body>
+	<!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<a class="navbar-brand logo_h" href="/home"><img src="/static/shop/img/공동구매logo.jpg" width="163" height="39"
+							alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav">
+                          <li class="nav-item active"><a class="nav-link"></a></li>
+                          <li class="nav-item active"><a class="nav-link" href="/home">홈</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/post">게시글</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/write">글쓰기</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                          <li class="nav-item"><a class="nav-link" href="/{{ url }}">{{ name_in }}</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/logout">{{ name_out }}</a></li>
+                        </ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================ End Header Menu Area =================-->
+
+	<!--================Single Product Area =================-->
+	<div class="product_image_area">
+		<div class="container">
+			<div class="row s_product_inner">
+				<div class="col-lg-6">
+					<div class="owl-carousel owl-theme s_Product_carousel">
+						<div class="single-prd-item">
+							<!--<img class="img-fluid" src="{django}" alt="">-->
+                            {% if image %}
+                               <img src="../media/shop/post_img/{{ image }}" alt="">
+                            {% else %}
+                                <p>No image available.</p>
+                            {% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
+						<h3>{{ title }}</h3>
+						<h2>{{ price }}원</h2>
+						{{ content | safe }}
+						<br>
+						<form method="post">
+                            <input name="title" value="{{ title }}" hidden>
+                            <input name="price" value="{{ price }}" hidden>
+                            <input name="image" value="{{ image }}" hidden>
+                            <input name="link" value="{{ link }}" hidden>
+                            <input name="content" value="{{ content }}" hidden>
+                            <input name="post_end" value="{{ post_end }}" hidden>
+                            <button type="submit" class="button button--active button-contactForm">제품 게시</button>
+                        </form>
+						<div class="card_area d-flex align-items-center">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================End Single Product Area =================-->
+
+	<script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/shop/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="/static/shop/vendors/skrollr.min.js"></script>
+	<script src="/static/shop/vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/static/shop/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="/static/shop/vendors/mail-script.js"></script>
+	<script src="/static/shop/js/main.js"></script>
+</body>
+
+</html>

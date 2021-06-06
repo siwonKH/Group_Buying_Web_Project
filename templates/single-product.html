@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}-{{ name }}</title>
+  <link rel="icon" href="/static/shop/img/logo.ico" type="image/ico">
+  <link rel="stylesheet" href="/static/shop/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/static/shop/vendors/linericon/style.css">
+  <link rel="stylesheet" href="/static/shop/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="/static/shop/css/style.min.css">
+</head>
+<body>
+	<!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<a class="navbar-brand logo_h" href="/home"><img src="/static/shop/img/공동구매logo.jpg" width="163" height="39"
+							alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav">
+                          <li class="nav-item"><a class="nav-link"></a></li>
+                          <li class="nav-item"><a class="nav-link" href="/home">홈</a></li>
+                          <li class="nav-item active"><a class="nav-link" href="/post">게시글</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/write">글쓰기</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                          <li class="nav-item"><a class="nav-link" href="/{{ url }}">{{ name_in }}</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/logout">{{ name_out }}</a></li>
+                        </ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================ End Header Menu Area =================-->
+
+	<!--================Single Product Area =================-->
+	<div class="product_image_area">
+		<div class="container">
+			<div class="row s_product_inner">
+				<div class="col-lg-6">
+                        <div class="single-prd-item">
+							<img class="img-fluid" src="/media/{{ image }}" onerror="this.src='/media/post_img/default.png'" style="width: 400px; height: auto; overflow: hidden" alt="">
+						</div>
+{#					<div class="owl-carousel owl-theme s_Product_carousel">#}
+{##}
+{#					</div>#}
+				</div>
+				<div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
+						<h3>{{ title }}</h3>
+						<h2>{{ price }}원</h2>
+                        <label href="{{ link }}" type="url">링크: {{ link }}</label>
+						<p><br>{{ content | safe }}<br></p>
+{#                        <form method="post">#}
+                            {% csrf_token %}
+                            <div><br></div>
+                            <div class="product_count">
+                                <input name="post_id" value="{{ post_id }}" hidden>
+                                <label for="qty">개수:</label>
+                                <input type="text" name="signed_value" id="sst" maxlength="12" value={{ val }} title="Quantity:"
+                                    class="input-text qty">
+                                <button
+                                    onclick="let result = document.getElementById('sst'); let sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                    class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                <button
+                                    onclick="let result = document.getElementById('sst'); let sst = result.value; if( !isNaN( sst ) && sst > 0 ) result.value--;return false;"
+                                    class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						    </div>
+                            <div id="result">
+                                {{ string }}
+                            </div>
+                            <button class="button primary-btn" id="ajaxT" name="ajaxT" type="submit">신청</button>
+                            <script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+                            <script>
+                                $('#ajaxT').click(function() {
+                                    $.ajax({
+                                        url:'/content',
+                                        dataType:'json',
+                                        type:'POST',
+                                        data:{
+                                            'post_id': {{ post_id }},
+                                            'signed_value':$('#sst').val(),
+                                            'csrfmiddlewaretoken': '{{ csrf_token }}',
+                                        },
+                                        success:function(result){
+                                            $('#result').text(result['msg']);
+                                            $('#sst').attr('value', result['val']);
+                                        }
+                                    });
+                                })
+
+                            </script>
+{#                        </form>#}
+						<div class="card_area d-flex align-items-center">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================End Single Product Area =================-->
+
+	<script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/shop/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="/static/shop/vendors/skrollr.min.js"></script>
+	<script src="/static/shop/vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/static/shop/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="/static/shop/vendors/mail-script.js"></script>
+	<script src="/static/shop/js/main.js"></script>
+</body>
+
+</html>

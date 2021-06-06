@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>공동 구매 - 홈</title>
+  <link rel="icon" href="/static/shop/img/logo.ico" type="image/ico">
+  <link rel="stylesheet" href="/static/shop/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/static/shop/vendors/linericon/style.css">
+  <link rel="stylesheet" href="/static/shop/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="/static/shop/css/style.css">
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" href="/home"><img src="/static/shop/img/공동구매logo.png" width="163" height="39" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-10000">
+              <li class="nav-item active"><a class="nav-link" href="/home">홈</a></li>
+              <!--<li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>-->
+              <li class="nav-item"><a class="nav-link" href="/{{ url }}">{{ name_in }}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">{{ name_out }}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/write">{{ write }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+	<!--================ End Header Menu Area =================-->
+
+  <main class="site-main">
+    
+    <!--================ Hero banner start =================-->
+    <section class="hero-banner">
+      <div class="container">
+        <div class="row no-gutters align-items-center pt-60px">
+          <div class="col-5 d-none d-sm-block">
+            <div class="hero-banner__img">
+              <img class="img-fluid" src="/static/shop/img/home/hero-banner.png" alt="">
+            </div>
+          </div>
+          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+            <div class="hero-banner__content">
+              <h4>안녕하세요.</h4>
+              <h1>공동구매</h1>
+              <p>웹사이트에 오신 것을 환영합니다.</p>
+              <a class="button button-hero" href="/{{ banner_url }}">{{ banner }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Hero banner start =================-->
+
+    <!-- ================ trending product section start ================= -->
+    <section class="section-margin calc-60px">
+      <div class="container">
+        <div class="section-intro pb-60px">
+          <p>공동 구매</p>
+          <h2><span class="section-intro__style">게시글</span></h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product11.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">감자알칩24g 40</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="max-width: 100%; height: auto; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product22.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">김치볶음 150g</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product33.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">몬스터355ml</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product44.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">뽀로로음료 230ml</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product55.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">신라면 68g 6개입</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product66.png" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">아몬드브리즈190ml 24개입</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product77.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">제티20개입</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">
+                <a href="/content"><img class="card-img" src="/static/shop/img/product/product88.jpg" alt=""></a>
+                <a href="/content"><ul class="card-product__imgOverlay">
+                  <p>마감 기한</p>
+                </ul></a>
+              </div>
+              <a href="/content" style="color: #222;"><div class="card-body">
+                <h4 class="card-product__title">햇반컵반 233g</h4>
+                <p>게시자</p>
+                <p class="card-product__price">가격</p>
+              </div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================ trending product section end ================= -->
+
+  </main>
+
+  <script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/static/shop/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/static/shop/vendors/skrollr.min.js"></script>
+  <script src="/static/shop/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="/static/shop/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="/static/shop/vendors/mail-script.js"></script>
+  <script src="/static/shop/js/main.js"></script>
+</body>
+</html>

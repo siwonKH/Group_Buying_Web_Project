@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>공동 구매 - 로그인</title>
+{#  <link rel="icon" href="/static/shop/img/logo.ico" type="image/ico">#}
+  <link rel="stylesheet" href="/static/shop/vendors/bootstrap/bootstrap.min.css">
+{#  <link rel="stylesheet" href="/static/shop/vendors/fontawesome/css/all.min.css">#}
+{#  <link rel="stylesheet" href="/static/shop/vendors/themify-icons/themify-icons.css">#}
+{#  <link rel="stylesheet" href="/static/shop/vendors/linericon/style.css">#}
+{#  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.theme.default.min.css">#}
+{#  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.carousel.min.css">#}
+{#  <link rel="stylesheet" href="/static/shop/vendors/nice-select/nice-select.css">#}
+{#  <link rel="stylesheet" href="/static/shop/vendors/nouislider/nouislider.min.css">#}
+  <link rel="stylesheet" href="/static/shop/css/style.min.css">
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+  <header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+		  <a class="navbar-brand logo_h" href="/home"><img src="/static/shop/img/공동구매logo.jpg" width="163" height="39" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav">
+              <li class="nav-item"><a class="nav-link"></a></li>
+              <li class="nav-item"><a class="nav-link" href="/home">홈</a></li>
+              <li class="nav-item"><a class="nav-link" href="/post">게시글</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
+              <li class="nav-item"><a class="nav-link" href="/write">글쓰기</a></li>
+            </ul>
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item active"><a class="nav-link" href="/{{ url }}">{{ name_in }}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">{{ name_out }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+	<!--================ End Header Menu Area =================-->
+  
+  <!--================Login Box Area =================-->
+	<section class="login_box_area section-margin">
+		<div class="container">
+				<div class="col-lg">
+					<div class="login_form_inner">
+						<h3>로그인</h3>
+                        <p>{{ error }}</p>
+						<form class="row login_form" method="post" id="contactForm" style="padding-bottom: 45px">
+                            {% csrf_token %}
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="id" name="user_id" placeholder="Id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="pw" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="button button-login w-100">로그인</button>
+								<a href="#">Forgot Password?</a>
+							</div>
+						</form>
+					</div>
+				</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->
+
+
+
+  <!--================ Start footer Area  =================-->	
+	<footer>
+		<div class="footer-area footer-only">
+					<p class="col-lg-12 footer-text text-center">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="index.html" target="_blank">관리자 문의</a>
+</p>
+	</footer>
+	<!--================ End footer Area  =================-->
+
+
+
+  <script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/static/shop/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+{#  <script src="/static/shop/vendors/skrollr.min.js"></script>#}
+{#  <script src="/static/shop/vendors/owl-carousel/owl.carousel.min.js"></script>#}
+{#  <script src="/static/shop/vendors/nice-select/jquery.nice-select.min.js"></script>#}
+{#  <script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>#}
+{#  <script src="/static/shop/vendors/mail-script.js"></script>#}
+{#  <script src="/static/shop/js/main.js"></script>#}
+</body>
+</html>

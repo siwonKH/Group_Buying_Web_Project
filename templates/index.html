@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>공동 구매 - 홈</title>
+  <link rel="icon" href="/static/shop/img/logo.ico" type="image/ico">
+  <link rel="stylesheet" href="/static/shop/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/static/shop/vendors/linericon/style.css">
+  <link rel="stylesheet" href="/static/shop/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.carousel.min.css">
+
+  <link rel="stylesheet" href="/static/shop/css/style.min.css">
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" href="/home"><img src="/static/shop/img/공동구매logo.jpg" width="163" height="39" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav">
+              <li class="nav-item active"><a class="nav-link"></a></li>
+              <li class="nav-item active"><a class="nav-link" href="/home">홈</a></li>
+              <li class="nav-item"><a class="nav-link" href="/post">게시글</a></li>
+              <li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
+              <li class="nav-item"><a class="nav-link" href="/write">글쓰기</a></li>
+            </ul>
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="/{{ url }}">{{ name_in }}</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">{{ name_out }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</body>
+	<!--================ End Header Menu Area =================-->
+
+    <!--================ Hero banner start =================-->
+    <section class="hero-banner">
+      <div class="container">
+        <div class="row no-gutters align-items-center pt-60px">
+          <div class="col-5 d-none d-sm-block">
+            <div class="hero-banner__img">
+              <img class="img-fluid" src="/static/shop/img/home/hero-banner.png" alt="">
+            </div>
+          </div>
+          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+            <div class="hero-banner__content">
+              <h4>안녕하세요.</h4>
+              <h1>공동구매</h1>
+              <p>웹사이트에 오신 것을 환영합니다.</p>
+              <a class="button button-hero" href="/{{ banner_url }}">{{ banner }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Hero banner start =================-->
+
+    <!-- ================ trending product section start ================= -->
+{#<body>#}
+{#<section class="section-margin calc-60px">#}
+{#    <div class="container">#}
+{#        <div class="section-intro pb-60px">#}
+{#            <p>공동 구매</p>#}
+{#            <h2><span class="section-intro__style">게시글</span></h2>#}
+{#            <div class="row infinite-container">#}
+{#                {% for post in posts %}#}
+{#                    <div class="col-md-6 col-lg-4 col-xl-3 infinite-item"><!--col-md-3-->#}
+{#                        <div class="card text-center card-product">#}
+{#                            <div class="card-product__img" style="width: 255px; height: 255px; overflow: hidden">#}
+{#                                <a href="/content"><img class="img-thumbnail" src="{{ post.image.url }}"></a><!--이미지-->#}
+{#                                <a href="/content"><ul class="card-product__imgOverlay">#}
+{#                                    {{ post.post_end }}까지<!--마감일-->#}
+{#                                </ul></a>#}
+{#                            </div>#}
+{#                            <a href="/content" style="color: #222;"><div class="card-body">#}
+{#                                <h4 class="card-product__title">{{ post.title }}</h4><!--제목-->#}
+{#                                <p>{{ post.id }} {{ post.name }}</p><!--학번 이름-->#}
+{#                                <p class="card-product__price">{{ post.price }}원</p><!--가격-->#}
+{#                            </div></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#            {% if page_obj.has_next %}#}
+{#                <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>#}
+{#            {% endif %}#}
+{#                <div class="d-flex justify-content-center" style="display:none;">#}
+{#                    <div class="spinner-border" role="status">#}
+{#                        <span class="sr-only">Loading...</span>#}
+{#                    </div>#}
+{#                </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+{#    <script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>#}
+{#    <script src="/static/el-pagination/js/jquery.waypoints.min.js"></script>#}
+{#    <script src="/static/el-pagination/js/infinite.min.js"></script>#}
+{#    <script>#}
+{#    let infinite = new Waypoint.Infinite({#}
+{#        element: $('.infinite-container')[0],#}
+{#        handler: function(direction) {#}
+{#    },#}
+{#    offset: 'bottom-in-view',#}
+{##}
+{#    onBeforePageLoad: function () {#}
+{#    $('.spinner-border').show();#}
+{#    },#}
+{#    onAfterPageLoad: function () {#}
+{#    $('.spinner-border').hide();#}
+{#    }#}
+{#    });#}
+{#    </script>#}
+  <script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/static/shop/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/static/shop/vendors/skrollr.min.js"></script>
+  <script src="/static/shop/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="/static/shop/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="/static/shop/vendors/mail-script.js"></script>
+  <script src="/static/shop/js/main.js"></script>
+</body>
+</html>

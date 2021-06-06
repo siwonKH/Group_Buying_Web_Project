@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- <title>Aroma Shop - Product Details</title> -->
+	<title>공동 구매 - 글쓰기</title>
+	<!-- <link rel="icon" href="img/Fevicon.png" type="image/png"> -->
+	<link rel="icon" href="/static/shop/img/logo.ico" type="image/ico">
+	<link rel="stylesheet" href="/static/shop/vendors/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/shop/vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="/static/shop/vendors/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="/static/shop/vendors/linericon/style.css">
+	<link rel="stylesheet" href="/static/shop/vendors/nice-select/nice-select.css">
+	<link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/static/shop/vendors/owl-carousel/owl.carousel.min.css">
+
+	<link rel="stylesheet" href="/static/shop/css/style.min.css">
+</head>
+
+<body>
+	<!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					
+					<a class="navbar-brand logo_h" href="/home"><img src="/static/shop/img/공동구매logo.jpg" width="163" height="39"
+							alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav">
+                          <li class="nav-item"><a class="nav-link"></a></li>
+                          <li class="nav-item"><a class="nav-link" href="/home">홈</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/post">게시글</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
+                          <li class="nav-item active"><a class="nav-link" href="/write">글쓰기</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                          <li class="nav-item"><a class="nav-link" href="/{{ url }}">{{ name_in }}</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/logout">{{ name_out }}</a></li>
+                        </ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================ End Header Menu Area =================-->
+
+	<!--================Single Product Write Area =================-->
+	<div class="product_image_area">
+		<div class="container">
+			<div class="row s_product_inner">
+				<div class="col-lg-4">
+					<!--<div class="owl-carousel owl-theme s_Product_carousel">-->
+						<div class="single-prd-item">
+							<img id="uploaded_img" src="/static/shop/img/category/s-p2.jpg" style="max-width: 100%; height: auto;" alt="">
+						</div>
+					<!--</div>-->
+				</div>
+
+				<div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
+						<h3>제품 등록하기</h3><br/>
+						<form action="#" class="form-contact contact_form" method="post" enctype="multipart/form-data" id="contactForm" novalidate="novalidate">
+							{% csrf_token %}
+                            <div class="row">
+								<div class="col-lg">
+								<div class="form-group">
+                                    <p style="color: red">{{ title_error }}</p>
+									<input class="form-control" name="title" style='font-size: 15pt' value="{% if title is not None %}{{ title }}{% endif %}" id="title_c" type="text" required placeholder="제품명, 제품 개수 ex(감자알칩 24g, 40봉)">
+								</div>
+								<div class="form-group">
+                                    <p style="color: red">{{ price_error }}</p>
+									<input class="form-control" name="price" value="{% if price is not None %}{{ price }}{% endif %}" id="price" type="text" onkeyup="numberWithCommas(this.value)" required placeholder="제품 가격">
+								</div>
+								<div class="form-group">
+                                    <p style="color: red">{{ link_error }}</p>
+									<input class="form-control" name="link" value="{% if link is not None %}{{ link }}{% endif %}" id="link" type="url" required placeholder="제품 원본 링크">
+								</div>
+                                <div class="form-group">
+                                    <p style="color: red">{{ date_error }}</p>
+									<input class="form-control" name="end_date" value="{% if post_end is not None %}{{ post_end }}{% endif %}" id="end_date" min="" type="date" required placeholder="마감 일자">
+								</div>
+                                <p style="color: red">{{ image_error }}</p>
+                                <label class="btn btn-default">
+                                    이미지 파일 찾아보기.. <input onchange="upload_img(this);" value="{{ image.url }}" type="file" name="image" hidden>
+                                </label>
+								</div>
+							</div>
+								<div class="form-group">
+									<textarea class="form-control different-control w-200" style='font-size: 10pt' name="message" value="{{ content }}" id="message" cols="30" rows="5" required placeholder="*변경가능사항&#13;&#10;&#13;&#10;- 감자알칩 14g 80봉&#13;&#10;- 쇼핑몰 변동으로 인한 가격 변동 +-500원"></textarea>
+                                </div>
+							<div class="form-group text-center text-md-right mt-3">
+								<button type="submit" class="button button--active button-contactForm">제품 게시</button>
+                                <!--<button class="s-button" type="submit">제품 게시</button>-->
+							</div>
+						</form>
+                        <script>
+                                $('#ajaxT').click(function() {
+                                    $.ajax({
+                                        url:'/write',
+                                        dataType:'json',
+                                        type:'POST',
+                                        data:{
+                                            'post_id': {{ post_id }},
+                                            'signed_value':$('#sst').val(),
+                                            'csrfmiddlewaretoken': '{{ csrf_token }}',
+                                        },
+                                        success:function(result){
+                                            $('#result').text(result['msg']);
+                                            $('#sst').attr('value', result['val']);
+                                        }
+                                    });
+                                })
+
+                            </script>
+                        <script>
+                            function numberWithCommas(x) {
+                                x = x.replace(/[^0-9]/g,'');
+                                x = x.replace(/,/g,'');
+                                $("#price").val(x.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                            }
+                        </script>
+                        <script>
+                            let today = new Date();
+                            let dd = today.getDate();
+                            let mm = today.getMonth()+1; //January is 0!
+                            let yyyy = today.getFullYear();
+                            dd+=1
+                             if(dd<10){
+                                    dd='0'+dd
+                                }
+                                if(mm<10){
+                                    mm='0'+mm
+                                }
+
+                            today = yyyy+'-'+mm+'-'+dd;
+                            document.getElementById("end_date").setAttribute("min", today);
+                        </script>
+                        <script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>
+                        <script type="text/javascript">
+                        function upload_img(input) {
+                          if (input.files && input.files[0]) {
+                            let src = URL.createObjectURL(input.files[0])
+                            $('#uploaded_img').attr('src', src)
+                          }
+                        }
+                        </script>
+
+                        </div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--================End Single Product Area =================-->
+	<script src="/static/shop/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/shop/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="/static/shop/vendors/skrollr.min.js"></script>
+	<script src="/static/shop/vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/static/shop/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="/static/shop/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="/static/shop/vendors/mail-script.js"></script>
+	<script src="/static/shop/js/main.js"></script>
+</body>
+</html>
